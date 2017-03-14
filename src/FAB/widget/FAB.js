@@ -1,6 +1,7 @@
 define([
     "dojo/_base/declare",
     "mxui/widget/_WidgetBase",
+    "dijit/_TemplatedMixin",
 
     "mxui/dom",
     "dojo/dom",
@@ -15,14 +16,17 @@ define([
     "dojo/html",
     "dojo/_base/event",
     "FAB/lib/jquery-1.11.2",
+    "FAB/lib/materializeFAB",
+    "FAB/lib/jquery-velocity",
+    "dojo/text!FAB/widget/template/FAB.html"
 
-], function (declare, _WidgetBase, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery) {
+], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, matFab, jqVel, template) {
     "use strict";
 
     var $ = _jQuery.noConflict(true);
 
-    return declare("FAB.widget.FAB", [ _WidgetBase ], {
-
+    return declare("FAB.widget.FAB", [ _WidgetBase, _TemplatedMixin ], {
+        templateString: template,
 
         // Internal variables.
         _handles: null,
@@ -49,6 +53,17 @@ define([
 
         uninitialize: function () {
           logger.debug(this.id + ".uninitialize");
+        },
+
+        _renderFAB: function(settings) {
+          // div.fixed-action-btn[.horizontal]
+          //   a.btn-floating.btn-large.red
+          //     i.lage.material-icons
+          //   ul
+          //     li
+          //       a.btn-floating[.red|.yellow|.green|.blue]
+          //         i.material-icons
+
         },
 
         _updateRendering: function (callback) {
