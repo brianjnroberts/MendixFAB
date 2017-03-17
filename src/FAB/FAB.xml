@@ -6,10 +6,33 @@
     <icon />
 
     <properties>
-        <property key="dummyKey" type="string" required="false" defaultValue="">
-            <caption>Dummy key</caption>
-            <category>Appearance</category>
-            <description>This key was added to make the widget work in the Modeler (needs atleast 1 key). Please change/remove this one</description>
+        <property key="baseColor" type="string" required="false" defaultValue="">
+            <caption>Base Button Color</caption>
+            <category>General</category>
+            <description>The color of the FAB (CSS color)</description>
+        </property>
+        <property key="actions" type="object" required="false" isList="true">
+            <caption>Actions</caption>
+            <category>General</category>
+            <description></description>
+            <properties>
+                <property key="className" type="string" required="false" defaultValue="">
+                    <caption>ClassName</caption>
+                    <category>Action</category>
+                    <description>The class of the icon. Use this to add the appropriate glyphicon or font-awesome icon. Values should be like `glyphicon glyphicon-plus`</description>
+                </property>
+                <property key="color" type="string" required="false" defaultValue="">
+                    <caption>Color</caption>
+                    <category>Action</category>
+                    <description>Color of the button</description>
+                </property>
+                <property key="microflow" type="microflow" required="false">
+                    <caption>MF Action</caption>
+                    <category>Action</category>
+                    <description>MF to run when the button is clicked</description>
+                    <returnType type="Void"></returnType>
+                </property>
+            </properties>
         </property>
     </properties>
 </widget>

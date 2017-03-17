@@ -20,53 +20,85 @@ define([
     "FAB/lib/jquery-velocity",
     "dojo/text!FAB/widget/template/FAB.html"
 
-], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, matFab, jqVel, template) {
+], function(declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, matFab, jqVel, template) {
     "use strict";
 
     var $ = _jQuery.noConflict(true);
 
-    return declare("FAB.widget.FAB", [ _WidgetBase, _TemplatedMixin ], {
+    return declare("FAB.widget.FAB", [_WidgetBase, _TemplatedMixin], {
         templateString: template,
 
         // Internal variables.
         _handles: null,
         _contextObj: null,
 
-        constructor: function () {
+        //modeler
+        actions: null,
+
+        constructor: function() {
             this._handles = [];
         },
 
-        postCreate: function () {
+        postCreate: function() {
             logger.debug(this.id + ".postCreate");
         },
 
-        update: function (obj, callback) {
+        update: function(obj, callback) {
             logger.debug(this.id + ".update");
 
             this._contextObj = obj;
             this._updateRendering(callback);
         },
 
-        resize: function (box) {
-          logger.debug(this.id + ".resize");
+        resize: function(box) {
+            logger.debug(this.id + ".resize");
         },
 
-        uninitialize: function () {
-          logger.debug(this.id + ".uninitialize");
+        uninitialize: function() {
+            logger.debug(this.id + ".uninitialize");
         },
 
-        _renderFAB: function(settings) {
-          // div.fixed-action-btn[.horizontal]
-          //   a.btn-floating.btn-large.red
-          //     i.lage.material-icons
-          //   ul
-          //     li
-          //       a.btn-floating[.red|.yellow|.green|.blue]
-          //         i.material-icons
+        _renderFAB: function() {
+            var ulNode = this.fabul;
+            this.actions.forEach(function(action) {
+                var i = document.createElement('i'),
+                    a = document.createElement('a'),
+                    li = document.createElement('li');
+
+                i.className = action.className;
+
+                a.style.backgroundColor = (action.color ? action.color : 'tomato');
+
+                a.addEventListener('click', lang.hitch(this, function() {
+                    mx.data.action({
+                        params: {
+                            actionname: action.microflow,
+                            applyto: "selection",
+                            guids: [this._contextObj.getGuid()]
+                        },
+                        callback: function(res) {
+                            // yay!
+                        },
+                        error: function(err) {
+                            // console.log(err)
+                        }
+                    });
+                }));
+                a.className = 'btn-floating';
+                li.appendChild(a);
+                ulNode.appendChild(li);
+            });
+            // div.fixed-action-btn[.horizontal]
+            //   a.btn-floating.btn-large.red
+            //     i.lage.material-icons
+            //   ul
+            //     li
+            //       a.btn-floating[.red|.yellow|.green|.blue]
+            //         i.material-icons
 
         },
 
-        _updateRendering: function (callback) {
+        _updateRendering: function(callback) {
             logger.debug(this.id + "._updateRendering");
 
             if (this._contextObj !== null) {
@@ -75,13 +107,14 @@ define([
                 dojoStyle.set(this.domNode, "display", "none");
             }
 
+            this._renderFAB();
             this._executeCallback(callback);
         },
 
-        _executeCallback: function (cb) {
-          if (cb && typeof cb === "function") {
-            cb();
-          }
+        _executeCallback: function(cb) {
+            if (cb && typeof cb === "function") {
+                cb();
+            }
         }
     });
 });
