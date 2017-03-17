@@ -11,6 +11,16 @@
             <category>General</category>
             <description>The color of the FAB (CSS color)</description>
         </property>
+        <property key="baseClass" type="string" required="false" defaultValue="">
+            <caption>Base Button Class</caption>
+            <category>General</category>
+            <description>Use this to set the icon of the FAB. Values should be like `glyphicon glyphicon-plus`</description>
+        </property>
+        <property key="renderHorizontal" type="boolean" required="true" defaultValue="false">
+            <caption>Render Horizontal?</caption>
+            <category>General</category>
+            <description>Default is `No`. Set to `Yes` to render horizontally</description>
+        </property>
         <property key="actions" type="object" required="false" isList="true">
             <caption>Actions</caption>
             <category>General</category>

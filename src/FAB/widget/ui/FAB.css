@@ -425,7 +425,7 @@ button.btn-floating {
 }
 .fixed-action-btn.horizontal ul {
   text-align: right;
-  right: 64px;
+  right: 100px;
   top: 50%;
   transform: translateY(-50%);
   height: 100%;
@@ -476,7 +476,7 @@ button.btn-floating {
   right: 0;
   text-align: center;
   position: absolute;
-  bottom: 64px;
+  bottom: 100px;
   margin: 0;
   visibility: hidden;
 }
