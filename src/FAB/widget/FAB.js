@@ -20,7 +20,7 @@ define([
     "FAB/lib/jquery-velocity",
     "dojo/text!FAB/widget/template/FAB.html"
 
-], function (declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, matFab, jqVel, template) {
+], function(declare, _WidgetBase, _TemplatedMixin, dom, dojoDom, dojoProp, dojoGeometry, dojoClass, dojoStyle, dojoConstruct, dojoArray, lang, dojoText, dojoHtml, dojoEvent, _jQuery, matFab, jqVel, template) {
     "use strict";
 
     var $ = _jQuery.noConflict(true);
@@ -34,44 +34,39 @@ define([
 
         //modeler
         actions: null,
-        renderHorizontal: null,
         baseClass: null,
 
-        constructor: function () {
+        constructor: function() {
             this._handles = [];
         },
 
-        postCreate: function () {
+        postCreate: function() {
             logger.debug(this.id + ".postCreate");
         },
 
-        update: function (obj, callback) {
+        update: function(obj, callback) {
             logger.debug(this.id + ".update");
 
             this._contextObj = obj;
             this._updateRendering(callback);
         },
 
-        resize: function (box) {
+        resize: function(box) {
             logger.debug(this.id + ".resize");
         },
 
-        uninitialize: function () {
+        uninitialize: function() {
             logger.debug(this.id + ".uninitialize");
         },
 
-        _renderFAB: function () {
+        _renderFAB: function() {
             var ulNode = this.fabul,
                 baseFab = this.baseButton,
                 baseDiv = this.baseDiv;
 
-            if (this.renderHorizontal) {
-                dojoClass.add(baseDiv, 'horizontal');
-            }
-
             dojoClass.add(baseFab, this.baseClass);
 
-            this.actions.forEach(lang.hitch(this, function (action) {
+            this.actions.forEach(lang.hitch(this, function(action) {
                 var i = document.createElement('i'),
                     a = document.createElement('a'),
                     li = document.createElement('li');
@@ -80,17 +75,17 @@ define([
 
                 a.style.backgroundColor = (action.color ? action.color : 'tomato');
 
-                a.addEventListener('click', lang.hitch(this, function (e) {
+                a.addEventListener('click', lang.hitch(this, function(e) {
                     mx.data.action({
                         params: {
                             actionname: action.microflow,
                             applyto: "selection",
                             guids: [this._contextObj.getGuid()]
                         },
-                        callback: function (res) {
+                        callback: function(res) {
                             // yay!
                         },
-                        error: function (err) {
+                        error: function(err) {
                             // console.log(err)
                         }
                     });
@@ -99,6 +94,7 @@ define([
                 a.className = 'btn-floating';
                 a.appendChild(i);
                 li.appendChild(a);
+                li.dataset.label = action.label;
                 ulNode.appendChild(li);
             }));
             // div.fixed-action-btn[.horizontal]
@@ -111,7 +107,7 @@ define([
 
         },
 
-        _updateRendering: function (callback) {
+        _updateRendering: function(callback) {
             logger.debug(this.id + "._updateRendering");
 
             if (this._contextObj !== null) {
@@ -124,7 +120,7 @@ define([
             this._executeCallback(callback);
         },
 
-        _executeCallback: function (cb) {
+        _executeCallback: function(cb) {
             if (cb && typeof cb === "function") {
                 cb();
             }

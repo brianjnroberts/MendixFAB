@@ -17,11 +17,6 @@
             <category>General</category>
             <description>Use this to set the icon of the FAB. Values should be like `glyphicon glyphicon-plus`</description>
         </property>
-        <property key="renderHorizontal" type="boolean" required="true" defaultValue="false">
-            <caption>Render Horizontal?</caption>
-            <category>General</category>
-            <description>Default is `No`. Set to `Yes` to render horizontally</description>
-        </property>
         <property key="actions" type="object" required="false" isList="true">
             <caption>Actions</caption>
             <category>General</category>
@@ -42,6 +37,11 @@
                     <category>Action</category>
                     <description>MF to run when the button is clicked</description>
                     <returnType type="Void"></returnType>
+                </property>
+                <property key="label" type="string" required="false" defaultValue="">
+                    <caption>Label</caption>
+                    <category>Action</category>
+                    <description></description>
                 </property>
             </properties>
         </property>
