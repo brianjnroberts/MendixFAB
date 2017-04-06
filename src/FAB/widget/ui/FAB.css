@@ -384,7 +384,7 @@ ul.staggered-list li {
 .btn-large {
     text-decoration: none;
     color: #fff;
-    background-color: green;
+    /*background-color: green;*/
     text-align: center;
     letter-spacing: .5px;
     transition: .2s ease-out;
@@ -406,7 +406,7 @@ ul.staggered-list li {
     height: 40px;
     line-height: 40px;
     padding: 0;
-    background-color: green;
+    /*background-color: green;*/
     border-radius: 50%;
     transition: .3s;
     cursor: pointer;
@@ -414,7 +414,7 @@ ul.staggered-list li {
 }
 
 .btn-floating:hover {
-    background-color: green;
+    /*background-color: green;*/
 }
 
 .btn-floating:before {
@@ -553,7 +553,7 @@ button.btn-floating {
     z-index: -1;
     width: 40px;
     height: 40px;
-    background-color: green;
+    /*background-color: green;*/
     border-radius: 50%;
     transform: scale(0);
 }

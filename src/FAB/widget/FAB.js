@@ -65,6 +65,7 @@ define([
                 baseDiv = this.baseDiv;
 
             dojoClass.add(baseFab, this.baseClass2);
+            baseFab.parentElement.style.backgroundColor = this.baseColor ? this.baseColor : '#a9a9a9';
 
             this.actions.forEach(lang.hitch(this, function(action) {
                 var i = document.createElement('i'),
