@@ -16,10 +16,10 @@ Add an Android-style FAB to your app.
             - use `glyphicon glyphicon-{something}` for glyphicons
             - use `fa fa-{something}` for fontawesome (must be included in project)
         3. `Actions`: For each action, configure:
-            `ClassName`: set to the class for the icon on the action button
-            `Color`: set to the color for the action button
-            `MF Action`: select the microflow for the action button
-            `Label`: set to the floating label for the action button
+            1. `ClassName`: set to the class for the icon on the action button
+            2. `Color`: set to the color for the action button
+            3. `MF Action`: select the microflow for the action button
+            4. `Label`: set to the floating label for the action button
     
 
 ### Typical usage scenario
