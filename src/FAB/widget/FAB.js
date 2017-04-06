@@ -34,7 +34,7 @@ define([
 
         //modeler
         actions: null,
-        baseClass: null,
+        baseClass2: null, // has to be baseClass2 to not conflict with _WidgetBase.baseClass
 
         constructor: function() {
             this._handles = [];
@@ -64,7 +64,7 @@ define([
                 baseFab = this.baseButton,
                 baseDiv = this.baseDiv;
 
-            dojoClass.add(baseFab, this.baseClass);
+            dojoClass.add(baseFab, this.baseClass2);
 
             this.actions.forEach(lang.hitch(this, function(action) {
                 var i = document.createElement('i'),

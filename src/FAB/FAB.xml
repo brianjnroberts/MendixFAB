@@ -12,7 +12,7 @@
             <category>General</category>
             <description>The color of the FAB (CSS color)</description>
         </property>
-        <property key="baseClass" type="string" required="false" defaultValue="">
+        <property key="baseClass2" type="string" required="false" defaultValue="">
             <caption>Base Button Class</caption>
             <category>General</category>
             <description>Use this to set the icon of the FAB. Values should be like `glyphicon glyphicon-plus`</description>
