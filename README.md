@@ -1,6 +1,6 @@
 ![badge](https://img.shields.io/badge/mendix-5.19.0-green.svg)
 
-# Fixed Action Button (FAB)
+# Floating Action Button (FAB)
 
 Add an Android-style FAB to your app.
 📱 works on mobile!
