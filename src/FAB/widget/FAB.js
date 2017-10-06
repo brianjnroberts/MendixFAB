@@ -61,17 +61,16 @@ define([
 
         _renderFAB: function() {
             var ulNode = this.fabul,
-                baseFab = this.baseButton, 
+                baseFab = this.baseButton,
                 baseDiv = this.baseDiv;
 
             dojoClass.add(baseFab, this.baseClass2);
-            baseFab.parentElement.style.backgroundColor = this.baseColor ? this.baseColor : '#a9a9a9';
+            baseFab.parentElement.style.backgroundColor = this.baseColor ? this.baseColor : "#a9a9a9";
 
-            console.log('number of entries: ' + this.actions.length)
-            if(this.actions.length === 1) {
-                console.log('line71')
-                if(this.actions[0].microflow != '') {
-                    baseFab.addEventListener('click', lang.hitch(this, function(e) {
+            console.debug("[FAB] number of entries: " + this.actions.length)
+            if (this.actions.length === 1) {
+                if (this.actions[0].microflow !== "") {
+                    baseFab.addEventListener("click", lang.hitch(this, function(e) {
                         mx.data.action({
                             params: {
                                 actionname: this.actions[0].microflow,
@@ -89,16 +88,16 @@ define([
                 }
             } else {
                 this.actions.forEach(lang.hitch(this, function(action) {
-                    var i = document.createElement('i'),
-                        a = document.createElement('a'),
-                        li = document.createElement('li');
-    
-                    dojoClass.add(i, action.className);
-    
-                    a.style.backgroundColor = (action.color ? action.color : 'tomato');
+                    var i = document.createElement("i"),
+                        a = document.createElement("a"),
+                        li = document.createElement("li");
 
-                    if(action.microflow != '') {
-                        a.addEventListener('click', lang.hitch(this, function(e) {
+                    dojoClass.add(i, action.className);
+
+                    a.style.backgroundColor = (action.color ? action.color : "tomato");
+
+                    if (action.microflow !== "") {
+                        a.addEventListener("click", lang.hitch(this, function(e) {
                             mx.data.action({
                                 params: {
                                     actionname: action.microflow,
@@ -114,8 +113,8 @@ define([
                             });
                         }));
                     }
-    
-                    a.className = 'btn-floating';
+
+                    a.className = "btn-floating";
                     a.appendChild(i);
                     li.appendChild(a);
                     li.dataset.label = action.label;
