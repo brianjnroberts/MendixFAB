@@ -6,6 +6,7 @@
   "author": "Conner Charlebois",
   "private": true,
   "dependencies": {
+    "gulp": "^3.9.1"
   },
   "devDependencies": {
     "del": "^2.2.2",
