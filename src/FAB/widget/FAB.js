@@ -35,6 +35,7 @@ define([
         //modeler
         actions: null,
         baseClass2: null, // has to be baseClass2 to not conflict with _WidgetBase.baseClass
+        baseMicroflow: null,
 
         constructor: function() {
             this._handles = [];
@@ -69,11 +70,11 @@ define([
 
             console.debug("[FAB] number of entries: " + this.actions.length)
             if (this.actions.length === 1) {
-                if (this.actions[0].microflow !== "") {
+                if (this.baseMicroflow !== "") {
                     baseFab.addEventListener("click", lang.hitch(this, function(e) {
                         mx.data.action({
                             params: {
-                                actionname: this.actions[0].microflow,
+                                actionname: this.baseMicroflow,
                                 applyto: "selection",
                                 guids: [this._contextObj.getGuid()]
                             },
@@ -81,7 +82,7 @@ define([
                                 //
                             },
                             error: function(err) {
-                                // console.log(err)
+                                // console(err)
                             }
                         })
                     }))

@@ -9,17 +9,23 @@
     <properties>
         <property key="baseColor" type="string" required="false" defaultValue="">
             <caption>Base Button Color</caption>
-            <category>General</category>
+            <category>Base Button</category>
             <description>The color of the FAB (CSS color)</description>
         </property>
         <property key="baseClass2" type="string" required="false" defaultValue="">
             <caption>Base Button Class</caption>
-            <category>General</category>
+            <category>Base Button</category>
             <description>Use this to set the icon of the FAB. Values should be like `glyphicon glyphicon-plus`</description>
         </property>
+        <property key="baseMicroflow" type="microflow" required="false">
+            <caption>On Click</caption>
+            <category>Base Button</category>
+            <description></description>
+            <returnType type="Void"></returnType>
+        </property>
         <property key="actions" type="object" required="false" isList="true">
-            <caption>Actions</caption>
-            <category>General</category>
+            <caption>Buttons</caption>
+            <category>Drawer Buttons</category>
             <description></description>
             <properties>
                 <property key="className" type="string" required="false" defaultValue="">
