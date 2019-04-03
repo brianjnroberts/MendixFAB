@@ -308,10 +308,10 @@ ul.staggered-list li {
     border: none;
     border-radius: 2px;
     display: inline-block;
-    height: 36px;
-    line-height: 36px;
+    /*height: 36px;
+    line-height: 36px;//*/
     padding: 0 2rem;
-    text-transform: uppercase;
+    /*text-transform: uppercase;//*/
     vertical-align: middle;
     -webkit-tap-highlight-color: transparent;
 }
@@ -386,7 +386,7 @@ ul.staggered-list li {
     color: #fff;
     /*background-color: green;*/
     text-align: center;
-    letter-spacing: .5px;
+    /*letter-spacing: .5px;//*/
     transition: .2s ease-out;
     cursor: pointer;
 }

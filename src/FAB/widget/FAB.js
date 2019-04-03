@@ -69,24 +69,23 @@ define([
             baseFab.parentElement.style.backgroundColor = this.baseColor ? this.baseColor : "#a9a9a9";
 
             console.debug("[FAB] number of entries: " + this.actions.length)
-            if (this.actions.length === 1) {
-                if (this.baseMicroflow !== "") {
-                    baseFab.addEventListener("click", lang.hitch(this, function(e) {
-                        mx.data.action({
-                            params: {
-                                actionname: this.baseMicroflow,
-                                applyto: "selection",
-                                guids: [this._contextObj.getGuid()]
-                            },
-                            callback: function(res) {
-                                //
-                            },
-                            error: function(err) {
-                                // console(err)
-                            }
-                        })
-                    }))
-                }
+            if (this.actions.length === 1 && this.baseMicroflow !== "") {
+                baseFab.addEventListener("click", lang.hitch(this, function(e) {
+                    mx.data.action({
+                        params: {
+                            actionname: this.baseMicroflow,
+                            applyto: "selection",
+                            guids: [this._contextObj.getGuid()]
+                        },
+                        callback: function(res) {
+                            //
+                        },
+                        error: function(err) {
+                            // console(err)
+                        }
+                    })
+                }))
+                
             } else {
                 this.actions.forEach(lang.hitch(this, function(action) {
                     var i = document.createElement("i"),

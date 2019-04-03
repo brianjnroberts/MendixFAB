@@ -28,15 +28,15 @@
             <category>Drawer Buttons</category>
             <description></description>
             <properties>
+                <property key="label" type="string" required="false" defaultValue="">
+                    <caption>Label</caption>
+                    <category>Action</category>
+                    <description></description>
+                </property>
                 <property key="className" type="string" required="false" defaultValue="">
-                    <caption>ClassName</caption>
+                    <caption>Icon</caption>
                     <category>Action</category>
                     <description>The class of the icon. Use this to add the appropriate glyphicon or font-awesome icon. Values should be like `glyphicon glyphicon-plus`</description>
-                </property>
-                <property key="color" type="string" required="false" defaultValue="">
-                    <caption>Color</caption>
-                    <category>Action</category>
-                    <description>Color of the button</description>
                 </property>
                 <property key="microflow" type="microflow" required="false">
                     <caption>MF Action</caption>
@@ -44,10 +44,10 @@
                     <description>MF to run when the button is clicked</description>
                     <returnType type="Void"></returnType>
                 </property>
-                <property key="label" type="string" required="false" defaultValue="">
-                    <caption>Label</caption>
+                <property key="color" type="string" required="false" defaultValue="">
+                    <caption>Color</caption>
                     <category>Action</category>
-                    <description></description>
+                    <description>Color of the button</description>
                 </property>
             </properties>
         </property>
