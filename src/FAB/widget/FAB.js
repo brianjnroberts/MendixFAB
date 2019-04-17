@@ -66,7 +66,7 @@ define([
                 baseDiv = this.baseDiv;
 
             dojoClass.add(baseFab, this.baseClass2);
-            baseFab.parentElement.style.backgroundColor = this.baseColor ? this.baseColor : "#a9a9a9";
+            //baseFab.parentElement.style.backgroundColor = this.baseColor ? this.baseColor : "#a9a9a9";
 
             console.debug("[FAB] number of entries: " + this.actions.length)
             if (this.actions.length === 1 && this.baseMicroflow !== "") {
@@ -94,7 +94,7 @@ define([
 
                     dojoClass.add(i, action.className);
 
-                    a.style.backgroundColor = (action.color ? action.color : "tomato");
+                    //a.style.backgroundColor = (action.color ? action.color : "tomato");
 
                     if (action.microflow !== "") {
                         a.addEventListener("click", lang.hitch(this, function(e) {
